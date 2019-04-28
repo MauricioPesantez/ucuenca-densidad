@@ -8,8 +8,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "postinstall": "ng build --aot --prod",
     "e2e": "ng e2e",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && ng serve -o"
+
   },
   "engines": {
     "node": "6.11.1",
