@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-dashboard',
@@ -41,6 +42,10 @@ export class DashboardComponent implements OnInit {
       });
 
       seq = 0;
+  };
+
+  convertirUnidades(){
+  
   };
   startAnimationForBarChart(chart){
       let seq2: any, delays2: any, durations2: any;
@@ -145,6 +150,18 @@ export class DashboardComponent implements OnInit {
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
+  } 
+
+  opcionMedida=1
+  seleccionMedida=0
+  hectareasTotales
+  calculo=0
+  capturarMedida(){
+    //seleccion de unidad de medida
+    this.seleccionMedida = this.opcionMedida
   }
 
+  getHectareas(){
+    return (this.hectareasTotales*this.opcionMedida)
+  }
 }
