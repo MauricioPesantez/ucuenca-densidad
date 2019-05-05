@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-dashboard',
@@ -150,12 +150,15 @@ export class DashboardComponent implements OnInit {
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
+      
   } 
-
+  /* VARIABLES DE CALCULO Y OBTENCION DE DATOS */
   opcionMedida=1
   seleccionMedida=0
   hectareasTotales
-  calculo=0
+  sueloUtil
+  ocultar=true
+  medidaMinimaSueloUtil = 0.2
   capturarMedida(){
     //seleccion de unidad de medida
     this.seleccionMedida = this.opcionMedida
@@ -164,4 +167,45 @@ export class DashboardComponent implements OnInit {
   getHectareas(){
     return (this.hectareasTotales*this.opcionMedida)
   }
+  // llenada de superfices no utilizables
+  limitacionesTopograficas
+  areasPaisaje
+  areasHistorico
+  vias
+  rios
+  fallasGeologicas
+  agricultura
+
+  calcularSueloUrbanizable(){
+    if(typeof this.agricultura == 'undefined' || 
+    typeof this.areasPaisaje == 'undefined' ||
+    typeof this.areasHistorico == 'undefined' ||
+    typeof this.vias == 'undefined' ||
+    typeof this.rios == 'undefined' ||
+    typeof this.fallasGeologicas == 'undefined' ||
+    typeof this.limitacionesTopograficas == 'undefined') console.log("indefinida aun")
+    else{
+      
+      this.sueloUtil =  (this.hectareasTotales - (parseInt(this.limitacionesTopograficas) + parseInt(this.areasPaisaje) + 
+      parseInt(this.areasHistorico) + parseInt(this.vias) + parseInt(this.rios) + parseInt(this.fallasGeologicas) + parseInt(this.agricultura))) * this.opcionMedida
+
+      /* SI EL SUELO CALCULADO ES NEGATIVO, O SE ENCUENTRA BAJO METRICAS DE MEDIDAS, ENTONCES NO SERÁ POSIBLE
+      EL CALCULO */
+      if(this.sueloUtil<this.medidaMinimaSueloUtil && this.sueloUtil>0){
+        alert("La cantidad de Suelo Útil no alcanza las medidas mínimas reglamentarias")
+      }
+
+      else if(this.sueloUtil<=0){
+        alert("Error. Los datos ingresados sobrepasan el valor del suelo inicial!!!")
+      }
+
+      else{
+        this.ocultar=false
+      }
+
+    }
+
+
+  }
+
 }
