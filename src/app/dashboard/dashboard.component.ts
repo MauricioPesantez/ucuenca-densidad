@@ -157,8 +157,10 @@ export class DashboardComponent implements OnInit {
   seleccionMedida=0
   hectareasTotales
   sueloUtil
+  sueloVivienda
   ocultar=true
   medidaMinimaSueloUtil = 0.2
+
   capturarMedida(){
     //seleccion de unidad de medida
     this.seleccionMedida = this.opcionMedida
@@ -183,7 +185,7 @@ export class DashboardComponent implements OnInit {
     typeof this.vias == 'undefined' ||
     typeof this.rios == 'undefined' ||
     typeof this.fallasGeologicas == 'undefined' ||
-    typeof this.limitacionesTopograficas == 'undefined') console.log("indefinida aun")
+    typeof this.limitacionesTopograficas == 'undefined') alert("Debe completar todos los campos")
     else{
       
       this.sueloUtil =  (this.hectareasTotales - (parseInt(this.limitacionesTopograficas) + parseInt(this.areasPaisaje) + 

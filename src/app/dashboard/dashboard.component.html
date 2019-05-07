@@ -5,7 +5,7 @@
             <div class="col-md-4">
                 <div class="card card-chart">
                     <div class="card-header card-header-primary">
-                        Superficie a urbanizar.
+                        <h4 class="card-title">Superficie a urbanizar.</h4>
                     </div>
                     <div class="card-body">
 
@@ -95,7 +95,7 @@
                                 </div>
 
                                 <div class="col-md-6" *ngIf="!ocultar">
-                                    <p>Suelo Útil: </p> {{sueloUtil}} ha
+                                    <p>Suelo Útil: {{sueloUtil}} ha</p>
                                 </div>
                             </div>
                             <button mat-raised-button type="submit" class="btn btn-danger pull-right" 
@@ -115,18 +115,19 @@
         </div>
 
 
-        <div class="row">
-            <div class="col-md-8">
+        <div class="row" id="resultados">
+            <div class="col-md-12">
                 <div class="card card-chart">
-                    <div class="card-header card-header-success">
-                        <div class="ct-chart" id="dailySalesChart"></div>
+                    <div class="card-header card-header-primary">                        
+                        <h4 class="card-title">Resultados</h4>
                         <!--Con el "id" se calcula lo de la funcion-->
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Resultados de Superficie</h4>
-                        <p class="card-category">
-                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today
-                            sales.</p>
+                        <!--<div class="ct-chart" id="dailySalesChart"></div>-->
+                        
+                        
+
+
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -151,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
             <div class="col-md-4">
                 <div class="card card-chart">
                     <div class="card-header card-header-danger">
@@ -168,7 +169,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!--
         <div class="row">
             <div class="col-lg-6 col-md-12">
