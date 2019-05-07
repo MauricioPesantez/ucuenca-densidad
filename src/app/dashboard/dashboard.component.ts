@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import {FormsModule, FormBuilder} from "@angular/forms";
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -207,7 +208,30 @@ export class DashboardComponent implements OnInit {
 
     }
 
-
   }
 
+  /** Calculo de suelo de vivienda */
+  constanteSuelo1 = 0.65
+  constanteSuelo2 = 0.70
+
+  poblacion
+  densidadNeta
+  numLotes
+  areaLotes
+
+  tabEvent(){
+    alert("hi")
+  }
+
+  getDatosSueloVivienda(valor){
+    if(valor==this.constanteSuelo1){
+      this.sueloVivienda = this.sueloUtil*this.constanteSuelo1
+      this.poblacion = this.densidadNeta * this.sueloVivienda
+      this.densidadNeta = this.poblacion / this.sueloVivienda
+      this.numLotes = this.densidadNeta/4
+      this.areaLotes = this.sueloVivienda / this.numLotes
+    }
+  }
+
+  
 }
