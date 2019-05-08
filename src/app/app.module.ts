@@ -20,12 +20,14 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import {
   AgmCoreModule
 } from '@agm/core';
+import {MatTabsModule} from '@angular/material/tabs';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import {MatTableModule} from '@angular/material'
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     FormsModule,
+    MatTabsModule,
     HttpModule,
     ComponentsModule,
     RouterModule,
@@ -33,7 +35,7 @@ import {MatTableModule} from '@angular/material'
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
-    MatTableModule
+    
   ],
   declarations: [
     AppComponent,

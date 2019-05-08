@@ -178,14 +178,15 @@ export class DashboardComponent implements OnInit {
   rios
   fallasGeologicas
   agricultura
-
-  calcularSueloUrbanizable(){
-    if(typeof this.agricultura == 'undefined' || 
-    typeof this.areasPaisaje == 'undefined' ||
-    typeof this.areasHistorico == 'undefined' ||
-    typeof this.vias == 'undefined' ||
-    typeof this.rios == 'undefined' ||
-    typeof this.fallasGeologicas == 'undefined' ||
+  constanteSuelo:number
+  calcularSueloUrbanizable(valor){
+    this.constanteSuelo = valor
+    if(typeof this.agricultura == 'undefined' && 
+    typeof this.areasPaisaje == 'undefined' &&
+    typeof this.areasHistorico == 'undefined' &&
+    typeof this.vias == 'undefined' &&
+    typeof this.rios == 'undefined' &&
+    typeof this.fallasGeologicas == 'undefined' &&
     typeof this.limitacionesTopograficas == 'undefined') alert("Debe completar todos los campos")
     else{
       
@@ -204,34 +205,32 @@ export class DashboardComponent implements OnInit {
 
       else{
         this.ocultar=false
+        /**Calculo de los datos  */
+        this.sueloVivienda = this.sueloUtil*this.constanteSuelo        
+        this.densidadNeta = this.poblacion / this.sueloVivienda
+        this.numLotes = this.densidadNeta/4
+        this.areaLotes = this.sueloVivienda / this.numLotes
       }
 
     }
 
   }
 
-  /** Calculo de suelo de vivienda */
-  constanteSuelo1 = 0.65
-  constanteSuelo2 = 0.70
-
   poblacion
   densidadNeta
   numLotes
   areaLotes
 
-  tabEvent(){
-    alert("hi")
+  calculoDensidad(){
+    this.densidadNeta = this.poblacion / this.sueloVivienda
+    this.numLotes = this.densidadNeta/4
+    this.areaLotes = this.sueloVivienda / this.numLotes
   }
 
-  getDatosSueloVivienda(valor){
-    if(valor==this.constanteSuelo1){
-      this.sueloVivienda = this.sueloUtil*this.constanteSuelo1
-      this.poblacion = this.densidadNeta * this.sueloVivienda
-      this.densidadNeta = this.poblacion / this.sueloVivienda
-      this.numLotes = this.densidadNeta/4
-      this.areaLotes = this.sueloVivienda / this.numLotes
-    }
+  calculoPoblacion(){
+    this.poblacion = this.densidadNeta * this.sueloVivienda
+    this.numLotes = this.densidadNeta/4
+    this.areaLotes = this.sueloVivienda / this.numLotes
   }
-
   
 }

@@ -1,6 +1,6 @@
-<div class="main-content">
+<div class="main-content">       
     <div class="container-fluid">
-
+        
         <div class="row">
             <div class="col-md-4">
                 <div class="card card-chart">
@@ -31,26 +31,8 @@
                     </div>
                     <div class="card-footer">
                         <div class="stats">
-                            
+                            <i class="material-icons">announcement</i> datos iniciales para calculos
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                            (change)="capturarMedida()">
-                            <option value="" disabled selected>Seleccione una unidad</option>
-                            <option value="0.0001">Metros Cuadrados</option>
-                            <option value="0.01">Decámetros Cuadrados</option>
-                            <option value="1.0">Hectómetros Cuadrados</option>
-                            <option value="0.01">Área</option>
-                            <option value="1">Hectárea</option>
-                            <option value="0.000083613">Yardas Cuadradas</option>
-                            <option value="258.999">Millas Cuadrados</option>
-                            <option value="0.00000929">Pies Cuadrados</option>
-                            <option value="0.000000065">Pulgadas Cuadrados</option>
-                        </select>
-                    </div>
-                    <div class="card-footer">
-                        
                     </div>
                 </div>
             </div>
@@ -115,10 +97,18 @@
                                 <div class="col-md-6" *ngIf="!ocultar">
                                     <p>Suelo Útil: {{sueloUtil}} ha</p>
                                 </div>
-                            </div>
-                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" 
-                                (click)="calcularSueloUrbanizable()">Calcular
-                                Superficie</button>
+                            </div>       
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <button mat-raised-button type="submit" class="btn btn-danger" 
+                                        (click)="calcularSueloUrbanizable(0.65)">Calcular con 0.65
+                                    </button>
+                                    <button mat-raised-button type="submit" class="btn btn-danger" 
+                                            (click)="calcularSueloUrbanizable(0.70)">Calcular con 0.70
+                                        </button>
+                                </div>
+                            </div>                           
+                            
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -132,7 +122,6 @@
             </div>
         </div>
 
-
         <div class="row" id="resultados">
             <div class="col-md-12">
                 <div class="card pmd-card">
@@ -140,74 +129,61 @@
                         <h4 class="card-title">Resultados suelo de vivienda</h4>
                         <!--Con el "id" se calcula lo de la funcion-->
                     </div>
-                    <div class="pmd-tabs pmd-tabs-dark bg-primary">
-                        <ul role="tablist" class="nav nav-tabs nav-fill" (selectedTabChange)="tabEvent($event)">
-                            <li class="nav-item" role="presentation"><a class="nav-link active" data-toggle="tab" role="tab" aria-controls="home" href="#primerCalculo">SV (0.65)</a></li>
-                            <li class="nav-item"><a class="nav-link" data-toggle="tab" role="tab" aria-controls="profile" href="#segundoCalculo">SV (0.70)</a></li>
-                        </ul>
-                    </div>
                     <div class="card-body">
                         <!--<div class="ct-chart" id="dailySalesChart"></div>-->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="primerCalculo">
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            Suelo de Vivienda:
-                                        </div>
-                                        <div class="col-md-3">
-                                            <mat-form-field class="example-full-width">
-                                                <input matInput type="text"
-                                                [(ngModel)]="sueloVivienda" name="sueloVivienda" disabled>
-                                            </mat-form-field>
-                                        </div>                                        
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                                Poblacion:
-                                        </div>
-                                        <div class="col-md-3">
-                                            <mat-form-field class="example-full-width">
-                                                <input matInput type="text"
-                                                    [(ngModel)]="poblacion" name="poblacion">
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-2">
-                                                Densidad Neta:
-                                        </div>
-                                        <div class="col-md-3">
-                                            <mat-form-field class="example-full-width">
-                                                <input matInput type="text"
-                                                    [(ngModel)]="densidadNeta" name="densidadNeta">
-                                            </mat-form-field>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                            <div class="col-md-2">
-                                                    Numero de Lores:
-                                            </div>
-                                            <div class="col-md-3">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput type="text"
-                                                        [(ngModel)]="numLotes" name="numLotes" disabled>
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-2">
-                                                    Area de Lotes:
-                                            </div>
-                                            <div class="col-md-3">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput type="text"
-                                                        [(ngModel)]="areaLotes" name="areaLotes" disabled>
-                                                </mat-form-field>
-                                            </div>
-                                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Suelo de Vivienda:
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="segundoCalculo">
-                                Fixed tabs have equal width, calculated either as the view width divided by the number of tabs, or based on the widest tab label. To navigate between fixed tabs, touch the tab or swipe the content area left or right.
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text"
+                                    [(ngModel)]="sueloVivienda" name="sueloVivienda" disabled>
+                                </mat-form-field>
+                            </div>                                        
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                    Poblacion:
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text"
+                                        [(ngModel)]="poblacion" name="poblacion" (change)="calculoDensidad()">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                    Densidad Neta:
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text"
+                                        [(ngModel)]="densidadNeta" name="densidadNeta" (change)="calculoPoblacion()">
+                                </mat-form-field>
                             </div>
                         </div>
+                        <div class="row">
+                                <div class="col-md-2">
+                                        Numero de Lotes:
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput type="text"
+                                            [(ngModel)]="numLotes" name="numLotes" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-1"></div>
+                                <div class="col-md-2">
+                                        Area de Lotes:
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput type="text"
+                                            [(ngModel)]="areaLotes" name="areaLotes" disabled>
+                                    </mat-form-field>
+                                </div>
+                            </div>
 
                     </div>
                     <div class="card-footer">
