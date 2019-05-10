@@ -178,7 +178,7 @@ export class DashboardComponent implements OnInit {
   rios
   fallasGeologicas
   agricultura
-  constanteSuelo:number
+  constanteSuelo:number = 0
   calcularSueloUrbanizable(valor){
     this.constanteSuelo = valor
     if(typeof this.agricultura == 'undefined' && 
@@ -215,22 +215,36 @@ export class DashboardComponent implements OnInit {
     }
 
   }
-
+ 
   poblacion
-  densidadNeta
+  densidadNeta=0
   numLotes
   areaLotes
 
+  getInteger(){
+    this.densidadNeta = Math.trunc(this.densidadNeta)
+    this.numLotes = Math.trunc(this.numLotes)
+    this.areaLotes = Math.trunc(this.areaLotes)
+    this.poblacion = Math.trunc(this.poblacion)
+  }
+
   calculoDensidad(){
     this.densidadNeta = this.poblacion / this.sueloVivienda
-    this.numLotes = this.densidadNeta/4
+    this.numLotes = this.poblacion/4
     this.areaLotes = this.sueloVivienda / this.numLotes
+    this.getInteger()
   }
 
   calculoPoblacion(){
     this.poblacion = this.densidadNeta * this.sueloVivienda
-    this.numLotes = this.densidadNeta/4
+    this.numLotes = this.poblacion/4
     this.areaLotes = this.sueloVivienda / this.numLotes
+    this.getInteger()
+  }
+  calculoValores(){
+    this.calcularSueloUrbanizable(this.constanteSuelo)
+    this.calculoDensidad()
+    this.calculoPoblacion()
   }
   
 }

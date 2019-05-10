@@ -8,10 +8,13 @@
                         <h4 class="card-title">Superficie a urbanizar.</h4>
                     </div>
                     <div class="card-body">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Ingrese la superficie" type="text"
+                            [(ngModel)]="hectareasTotales" name="hectareasTotales">
+                        </mat-form-field>
 
-                        <input type="text" class="form-control form-control-sm" placeholder="Ingrese la superficie"
-                            [(ngModel)]="hectareasTotales"> <br />
                         Seleccione una unidad
+                        
                         <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
                             (change)="capturarMedida()">
                             <option value="" disabled selected>Seleccione una unidad</option>
@@ -21,9 +24,9 @@
                             <option value="0.01">Área</option>
                             <option value="1">Hectárea</option>
                             <option value="0.000083613">Yardas Cuadradas</option>
-                            <option value="258.999">Millas Cuadrados</option>
+                            <option value="258.999">Millas Cuadradas</option>
                             <option value="0.00000929">Pies Cuadrados</option>
-                            <option value="0.000000065">Pulgadas Cuadrados</option>
+                            <option value="0.000000065">Pulgadas Cuadradas</option>
                         </select>
                         <h4>
                             Superficie inicial: {{getHectareas()}} ha.
@@ -45,70 +48,163 @@
                     <div class="card-body">
                         <form>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Limitaciones Topográficas" type="text"
                                         [(ngModel)]="limitacionesTopograficas" name="limitacionesTopograficas">
                                     </mat-form-field>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-2">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
+                                    (change)="capturarMedida()">
+                                        <option value="" disabled selected>Seleccione una unidad</option>
+                                        <option value="0.0001">Metros Cuadrados</option>
+                                        <option value="0.01">Decámetros Cuadrados</option>
+                                        <option value="1.0">Hectómetros Cuadrados</option>
+                                        <option value="0.01">Área</option>
+                                        <option value="1">Hectárea</option>
+                                        <option value="0.000083613">Yardas Cuadradas</option>
+                                        <option value="258.999">Millas Cuadradas</option>
+                                        <option value="0.00000929">Pies Cuadrados</option>
+                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Áreas de Valor Paisajístico" type="text"
                                         [(ngModel)]="areasPaisaje" name="areasPaisaje">
                                     </mat-form-field>
                                 </div>
+                                <div class="col-md-2">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
+                                    (change)="capturarMedida()">
+                                        <option value="" disabled selected>Seleccione una unidad</option>
+                                        <option value="0.0001">Metros Cuadrados</option>
+                                        <option value="0.01">Decámetros Cuadrados</option>
+                                        <option value="1.0">Hectómetros Cuadrados</option>
+                                        <option value="0.01">Área</option>
+                                        <option value="1">Hectárea</option>
+                                        <option value="0.000083613">Yardas Cuadradas</option>
+                                        <option value="258.999">Millas Cuadradas</option>
+                                        <option value="0.00000929">Pies Cuadrados</option>
+                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Áreas de Valor Histórico" type="text"
                                         [(ngModel)]="areasHistorico" name="areasHistorico">
                                     </mat-form-field>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-2">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
+                                    (change)="capturarMedida()">
+                                        <option value="" disabled selected>Seleccione una unidad</option>
+                                        <option value="0.0001">Metros Cuadrados</option>
+                                        <option value="0.01">Decámetros Cuadrados</option>
+                                        <option value="1.0">Hectómetros Cuadrados</option>
+                                        <option value="0.01">Área</option>
+                                        <option value="1">Hectárea</option>
+                                        <option value="0.000083613">Yardas Cuadradas</option>
+                                        <option value="258.999">Millas Cuadradas</option>
+                                        <option value="0.00000929">Pies Cuadrados</option>
+                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Franjas de Protección de Vías" type="text"
                                         [(ngModel)]="vias" name="vias">
                                     </mat-form-field>
                                 </div>
+                                <div class="col-md-2">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
+                                    (change)="capturarMedida()">
+                                        <option value="" disabled selected>Seleccione una unidad</option>
+                                        <option value="0.0001">Metros Cuadrados</option>
+                                        <option value="0.01">Decámetros Cuadrados</option>
+                                        <option value="1.0">Hectómetros Cuadrados</option>
+                                        <option value="0.01">Área</option>
+                                        <option value="1">Hectárea</option>
+                                        <option value="0.000083613">Yardas Cuadradas</option>
+                                        <option value="258.999">Millas Cuadradas</option>
+                                        <option value="0.00000929">Pies Cuadrados</option>
+                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Franjas de Protección de Ríos" type="text"
                                         [(ngModel)]="rios" name="rios">
                                     </mat-form-field>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-2">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
+                                    (change)="capturarMedida()">
+                                        <option value="" disabled selected>Seleccione una unidad</option>
+                                        <option value="0.0001">Metros Cuadrados</option>
+                                        <option value="0.01">Decámetros Cuadrados</option>
+                                        <option value="1.0">Hectómetros Cuadrados</option>
+                                        <option value="0.01">Área</option>
+                                        <option value="1">Hectárea</option>
+                                        <option value="0.000083613">Yardas Cuadradas</option>
+                                        <option value="258.999">Millas Cuadradas</option>
+                                        <option value="0.00000929">Pies Cuadrados</option>
+                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Área de Fallas Geológicas" type="text"
                                         [(ngModel)]="fallasGeologicas" name="fallasGeologicas">
                                     </mat-form-field>
                                 </div>
+                                <div class="col-md-2">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
+                                    (change)="capturarMedida()">
+                                        <option value="" disabled selected>Seleccione una unidad</option>
+                                        <option value="0.0001">Metros Cuadrados</option>
+                                        <option value="0.01">Decámetros Cuadrados</option>
+                                        <option value="1.0">Hectómetros Cuadrados</option>
+                                        <option value="0.01">Área</option>
+                                        <option value="1">Hectárea</option>
+                                        <option value="0.000083613">Yardas Cuadradas</option>
+                                        <option value="258.999">Millas Cuadradas</option>
+                                        <option value="0.00000929">Pies Cuadrados</option>
+                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Área de Agricultura" type="text"
                                         [(ngModel)]="agricultura" name="agricultura">
                                     </mat-form-field>
                                 </div>
-
+                                <div class="col-md-2">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
+                                    (change)="capturarMedida()">
+                                        <option value="" disabled selected>Seleccione una unidad</option>
+                                        <option value="0.0001">Metros Cuadrados</option>
+                                        <option value="0.01">Decámetros Cuadrados</option>
+                                        <option value="1.0">Hectómetros Cuadrados</option>
+                                        <option value="0.01">Área</option>
+                                        <option value="1">Hectárea</option>
+                                        <option value="0.000083613">Yardas Cuadradas</option>
+                                        <option value="258.999">Millas Cuadradas</option>
+                                        <option value="0.00000929">Pies Cuadrados</option>
+                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                    </select>
+                                </div>
                                 <div class="col-md-6" *ngIf="!ocultar">
                                     <p>Suelo Útil: {{sueloUtil}} ha</p>
                                 </div>
-                            </div>       
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <button mat-raised-button type="submit" class="btn btn-danger" 
-                                        (click)="calcularSueloUrbanizable(0.65)">Calcular con 0.65
-                                    </button>
-                                    <button mat-raised-button type="submit" class="btn btn-danger" 
-                                            (click)="calcularSueloUrbanizable(0.70)">Calcular con 0.70
-                                        </button>
-                                </div>
-                            </div>                           
-                            
+                            </div>
                             <div class="clearfix"></div>
                         </form>
                     </div>
@@ -121,51 +217,36 @@
                 </div>
             </div>
         </div>
-
+            
         <div class="row" id="resultados">
             <div class="col-md-12">
                 <div class="card pmd-card">
                     <div class="card-header card-header-primary">                        
-                        <h4 class="card-title">Resultados suelo de vivienda</h4>
+                        <h4 class="card-title">Resultados Suelos de Vivienda con:<b> {{constanteSuelo*100}}% </b></h4>
                         <!--Con el "id" se calcula lo de la funcion-->
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">filter_list</i> Porcentaje del suelo urbanizable destinado exclusivamente a vivienda
+                        </div>
                     </div>
                     <div class="card-body">
                         <!--<div class="ct-chart" id="dailySalesChart"></div>-->
                         <div class="row">
-                            <div class="col-md-2">
-                                Suelo de Vivienda:
+                            <div class="col-md-3">
+                                Suelo de Vivienda (ha):
                             </div>
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <input matInput type="text"
-                                    [(ngModel)]="sueloVivienda" name="sueloVivienda" disabled>
+                                    [(ngModel)]="sueloVivienda" name="sueloVivienda" (change)="calculoValores()">
                                 </mat-form-field>
+                                
                             </div>                                        
                         </div>
                         <div class="row">
-                            <div class="col-md-2">
-                                    Poblacion:
-                            </div>
-                            <div class="col-md-3">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput type="text"
-                                        [(ngModel)]="poblacion" name="poblacion" (change)="calculoDensidad()">
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-2">
-                                    Densidad Neta:
-                            </div>
-                            <div class="col-md-3">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput type="text"
-                                        [(ngModel)]="densidadNeta" name="densidadNeta" (change)="calculoPoblacion()">
-                                </mat-form-field>
-                            </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-md-2">
-                                        Numero de Lotes:
+                                <div class="col-md-3">
+                                        Número de Lotes:
                                 </div>
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
@@ -175,7 +256,7 @@
                                 </div>
                                 <div class="col-md-1"></div>
                                 <div class="col-md-2">
-                                        Area de Lotes:
+                                        Área de Lotes :
                                 </div>
                                 <div class="col-md-3">
                                     <mat-form-field class="example-full-width">
@@ -183,7 +264,18 @@
                                             [(ngModel)]="areaLotes" name="areaLotes" disabled>
                                     </mat-form-field>
                                 </div>
+                        </div>
+                               
+                        <div class="row">
+                            <div class="col-md-8">
+                                <button mat-raised-button type="submit" class="btn btn-danger" 
+                                    (click)="calcularSueloUrbanizable(0.65)">Calcular con 65%
+                                </button>
+                                <button mat-raised-button type="submit" class="btn btn-danger" 
+                                        (click)="calcularSueloUrbanizable(0.70)">Calcular con 70%
+                                    </button>
                             </div>
+                        </div>  
 
                     </div>
                     <div class="card-footer">
@@ -193,6 +285,38 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="col md-6">
+                <div class="card pmd-card">
+                    <div class="card-header card-header-primary">                        
+                        <h4 class="card-title"> Datos de Población y Densidad Neta </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                    Población (hab):
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text"
+                                        [(ngModel)]="poblacion" name="poblacion" (change)="calculoDensidad()">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                    Densidad Neta (hab/ha):
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text"
+                                        [(ngModel)]="densidadNeta" name="densidadNeta" (change)="calculoPoblacion()">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--
             <div class="col-md-4">
                 <div class="card card-chart">
