@@ -217,7 +217,38 @@
                 </div>
             </div>
         </div>
-            
+        <div class="row">
+            <div class="col md-12">
+                <div class="card pmd-card">
+                    <div class="card-header card-header-primary">                        
+                        <h4 class="card-title"> Datos de Población y Densidad Neta </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                    Población (hab):
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text"
+                                        [(ngModel)]="poblacion" name="poblacion" (change)="calculoDensidad()">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                    Densidad Neta (hab/ha):
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text"
+                                        [(ngModel)]="densidadNeta" name="densidadNeta" (change)="calculoPoblacion()">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row" id="resultados">
             <div class="col-md-12">
                 <div class="card pmd-card">
@@ -240,8 +271,7 @@
                                 <mat-form-field class="example-full-width">
                                     <input matInput type="text"
                                     [(ngModel)]="sueloVivienda" name="sueloVivienda" (change)="calculoValores()">
-                                </mat-form-field>
-                                
+                                </mat-form-field>                                
                             </div>                                        
                         </div>
                         <div class="row">
@@ -286,38 +316,53 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="col md-6">
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
                 <div class="card pmd-card">
                     <div class="card-header card-header-primary">                        
-                        <h4 class="card-title"> Datos de Población y Densidad Neta </h4>
+                        <h4 class="card-title">Características del Lote</h4>
+                        <!--Con el "id" se calcula lo de la funcion-->
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-2">
-                                    Población (hab):
+                            <div class="col-md-4">
+                                Lote medio Area:
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
                                     <input matInput type="text"
-                                        [(ngModel)]="poblacion" name="poblacion" (change)="calculoDensidad()">
-                                </mat-form-field>
+                                    [(ngModel)]="sueloVivienda" name="sueloVivienda" (change)="calculoValores()">
+                                </mat-form-field>                                
                             </div>
-                            <div class="col-md-1"></div>
-                            <div class="col-md-2">
-                                    Densidad Neta (hab/ha):
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                Lote mínimo Area:
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
                                     <input matInput type="text"
-                                        [(ngModel)]="densidadNeta" name="densidadNeta" (change)="calculoPoblacion()">
-                                </mat-form-field>
+                                    [(ngModel)]="sueloVivienda" name="sueloVivienda" (change)="calculoValores()">
+                                </mat-form-field>                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                Lote máximo Area:
+                            </div>
+                            <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text"
+                                    [(ngModel)]="sueloVivienda" name="sueloVivienda" (change)="calculoValores()">
+                                </mat-form-field>                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+        </div>
             <!--
             <div class="col-md-4">
                 <div class="card card-chart">
@@ -688,5 +733,5 @@
                 </div>
             </div>
         </div> -->
-    </div>
+    
 </div>
