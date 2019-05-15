@@ -55,8 +55,8 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                                    (change)="capturarMedida()">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionLimitacionesTopograficas"
+                                    (change)="capturarMedidaNoUrbanizable()" name=opci1>
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
                                         <option value="0.01">Decámetros Cuadrados</option>
@@ -76,8 +76,8 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                                    (change)="capturarMedida()">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionAreasPaisaje"
+                                    (change)="capturarMedidaNoUrbanizable()" name="opciAreas">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
                                         <option value="0.01">Decámetros Cuadrados</option>
@@ -99,8 +99,8 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                                    (change)="capturarMedida()">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionAreasHistorico"
+                                    (change)="capturarMedidaNoUrbanizable()" name="opcihisto">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
                                         <option value="0.01">Decámetros Cuadrados</option>
@@ -120,8 +120,8 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                                    (change)="capturarMedida()">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionVias"
+                                    (change)="capturarMedidaNoUrbanizable()" name="opciVias">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
                                         <option value="0.01">Decámetros Cuadrados</option>
@@ -143,8 +143,8 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                                    (change)="capturarMedida()">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionRios"
+                                    (change)="capturarMedidaNoUrbanizable()" name="opciRios">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
                                         <option value="0.01">Decámetros Cuadrados</option>
@@ -164,8 +164,8 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                                    (change)="capturarMedida()">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionFallasGeologicas"
+                                    (change)="capturarMedidaNoUrbanizable()" name="opciFallas">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
                                         <option value="0.01">Decámetros Cuadrados</option>
@@ -187,8 +187,8 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                                    (change)="capturarMedida()">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionAgricultura"
+                                    (change)="capturarMedidaNoUrbanizable()" name="opciAgri">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
                                         <option value="0.01">Decámetros Cuadrados</option>
@@ -229,7 +229,7 @@
                         <div class="stats">
                             <i class="material-icons">filter_list</i> Porcentaje del suelo urbanizable destinado exclusivamente a vivienda
                         </div>
-                    </div>
+                    </div> 
                     <div class="card-body">
                         <!--<div class="ct-chart" id="dailySalesChart"></div>-->
                         <div class="row">
@@ -245,6 +245,7 @@
                             </div>                                        
                         </div>
                         <div class="row">
+                                
                                 <div class="col-md-3">
                                         Número de Lotes:
                                 </div>
@@ -661,7 +662,7 @@
                                     <td>1</td>
                                     <td>Dakota Rice</td>
                                     <td>$36,738</td>
-                                    <td>Niger</td>
+                                    <td>Niger</td>n
                                 </tr>
                                 <tr>
                                     <td>2</td>

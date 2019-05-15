@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import * as Chartist from 'chartist';
 import {FormsModule, FormBuilder} from "@angular/forms";
-
-
+import { MatSliderModule } from '@angular/material';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   constructor() { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
@@ -43,10 +41,6 @@ export class DashboardComponent implements OnInit {
       });
 
       seq = 0;
-  };
-
-  convertirUnidades(){
-  
   };
   startAnimationForBarChart(chart){
       let seq2: any, delays2: any, durations2: any;
@@ -165,20 +159,52 @@ export class DashboardComponent implements OnInit {
   capturarMedida(){
     //seleccion de unidad de medida
     this.seleccionMedida = this.opcionMedida
+    //alert(this.seleccionMedida)
   }
 
   getHectareas(){
-    return (this.hectareasTotales*this.opcionMedida)
+
+    if(typeof this.hectareasTotales == 'undefined')return 0
+    else return (this.hectareasTotales*this.opcionMedida)
   }
+
+  seleccionMedidaNoUrbanizable = [1,1,1,1,1,1,1]
+  /*opciones de suelu no urbanizable*/
+  opcionLimitacionesTopograficas=0.0001
+  opcionAreasPaisaje=0.0001
+  opcionAreasHistorico=0.0001
+  opcionVias=0.0001
+  opcionRios=0.0001
+  opcionFallasGeologicas=0.0001
+  opcionAgricultura=0.0001
+
+
+  
+  capturarMedidaNoUrbanizable(){
+
+    this.seleccionMedidaNoUrbanizable[0] = this.opcionLimitacionesTopograficas    
+    this.seleccionMedidaNoUrbanizable[1] = this.opcionAreasPaisaje
+    this.seleccionMedidaNoUrbanizable[2] = this.opcionAreasHistorico
+    this.seleccionMedidaNoUrbanizable[3] = this.opcionVias
+    this.seleccionMedidaNoUrbanizable[4] = this.opcionRios
+    this.seleccionMedidaNoUrbanizable[5] = this.opcionFallasGeologicas
+    this.seleccionMedidaNoUrbanizable[6] = this.opcionAgricultura
+  }
+
+
+
+
+
   // llenada de superfices no utilizables
-  limitacionesTopograficas
-  areasPaisaje
-  areasHistorico
-  vias
-  rios
-  fallasGeologicas
-  agricultura
+  limitacionesTopograficas=0
+  areasPaisaje=0
+  areasHistorico=0
+  vias=0
+  rios=0
+  fallasGeologicas=0
+  agricultura=0
   constanteSuelo:number = 0
+
   calcularSueloUrbanizable(valor){
     this.constanteSuelo = valor
     if(typeof this.agricultura == 'undefined' && 
@@ -190,8 +216,10 @@ export class DashboardComponent implements OnInit {
     typeof this.limitacionesTopograficas == 'undefined') alert("Debe completar todos los campos")
     else{
       
-      this.sueloUtil =  (this.hectareasTotales - (parseInt(this.limitacionesTopograficas) + parseInt(this.areasPaisaje) + 
-      parseInt(this.areasHistorico) + parseInt(this.vias) + parseInt(this.rios) + parseInt(this.fallasGeologicas) + parseInt(this.agricultura))) * this.opcionMedida
+      this.sueloUtil =  (this.hectareasTotales - ((this.limitacionesTopograficas*this.seleccionMedidaNoUrbanizable[0]) + 
+                                            (this.areasPaisaje*this.seleccionMedidaNoUrbanizable[1]) + (this.areasHistorico*this.seleccionMedidaNoUrbanizable[2]) 
+                                            + (this.vias*this.seleccionMedidaNoUrbanizable[3]) + (this.rios*this.seleccionMedidaNoUrbanizable[4]) + 
+                                            (this.fallasGeologicas*this.seleccionMedidaNoUrbanizable[5]) + (this.agricultura*this.seleccionMedidaNoUrbanizable[6]))) * this.opcionMedida
 
       /* SI EL SUELO CALCULADO ES NEGATIVO, O SE ENCUENTRA BAJO METRICAS DE MEDIDAS, ENTONCES NO SERÁ POSIBLE
       EL CALCULO */
