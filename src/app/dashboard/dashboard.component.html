@@ -330,34 +330,50 @@
                             <div class="col-md-4">
                                 Lote medio Area:
                             </div>
-                            <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
                                     <input matInput type="text"
                                     [(ngModel)]="sueloVivienda" name="sueloVivienda" (change)="calculoValores()">
-                                </mat-form-field>                                
-                            </div>
+                                    
+                                    <!--
+                                        poner sub fijo a las entradas
+
+                                    <mat-hint>Hint</mat-hint>
+
+
+                                    -->
+                                </mat-form-field>
+                                                   
+                                <button mat-icon-button>
+                                    <i class="material-icons">add</i>
+                                </button> 
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 Lote mínimo Area:
                             </div>
-                            <div class="col-md-4">
                                 <mat-form-field class="example-full-width">
                                     <input matInput type="text"
                                     [(ngModel)]="sueloVivienda" name="sueloVivienda" (change)="calculoValores()">
-                                </mat-form-field>                                
-                            </div>
+                                </mat-form-field>    
+                                <button mat-icon-button>
+                                    <i class="material-icons">add</i>
+                                </button> 
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 Lote máximo Area:
                             </div>
-                            <div class="col-md-4">
+
                                 <mat-form-field class="example-full-width">
                                     <input matInput type="text"
                                     [(ngModel)]="sueloVivienda" name="sueloVivienda" (change)="calculoValores()">
                                 </mat-form-field>                                
-                            </div>
+                            
+                            
+                                <button mat-icon-button>
+                                    <i class="material-icons">add</i>
+                                </button> 
+                            
                         </div>
                     </div>
                 </div>

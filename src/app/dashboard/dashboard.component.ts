@@ -2,6 +2,8 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import * as Chartist from 'chartist';
 import {FormsModule, FormBuilder} from "@angular/forms";
 import { MatSliderModule } from '@angular/material';
+import {MatButtonModule} from '@angular/material/button'; 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
