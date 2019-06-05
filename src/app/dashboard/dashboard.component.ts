@@ -10,6 +10,8 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  isShow=false
   constructor() { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
@@ -191,6 +193,11 @@ export class DashboardComponent implements OnInit {
     this.seleccionMedidaNoUrbanizable[4] = this.opcionRios
     this.seleccionMedidaNoUrbanizable[5] = this.opcionFallasGeologicas
     this.seleccionMedidaNoUrbanizable[6] = this.opcionAgricultura
+  }
+
+  onClick(){
+    if(this.isShow) this.isShow=false
+    else this.isShow=true
   }
 
 
