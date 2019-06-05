@@ -19,6 +19,7 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
+import { PruebaComponent } from 'app/prueba/prueba.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -38,7 +39,8 @@ import {
     TypographyComponent,
     IconsComponent,
     MapsComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    PruebaComponent
   ]
 })
 
