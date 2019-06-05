@@ -20,6 +20,7 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { PruebaComponent } from 'app/prueba/prueba.component';
+import{CharacteristicsTableComponent} from 'app/characteristics-table/characteristics-table.component'
 @NgModule({
   imports: [
     CommonModule,
@@ -40,7 +41,8 @@ import { PruebaComponent } from 'app/prueba/prueba.component';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    PruebaComponent
+    PruebaComponent,
+    CharacteristicsTableComponent
   ]
 })
 
