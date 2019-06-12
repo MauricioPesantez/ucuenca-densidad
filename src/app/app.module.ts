@@ -23,6 +23,11 @@ import {
 import {MatTabsModule} from '@angular/material/tabs';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
+import {environment} from 'environments/environment';
+import {AngularFireDatabaseModule} from '@angular/fire/database'
+import { AngularFireModule } from '@angular/fire';
+import {AngularFirestore} from '@angular/fire/firestore';
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -35,13 +40,13 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
-    
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

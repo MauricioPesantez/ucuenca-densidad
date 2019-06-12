@@ -195,7 +195,7 @@ export class DashboardComponent implements OnInit {
     this.seleccionMedidaNoUrbanizable[6] = this.opcionAgricultura
   }
 
-  onClick(){
+  onClickCharacteristics(){
     if(this.isShow) this.isShow=false
     else this.isShow=true
   }
@@ -257,6 +257,8 @@ export class DashboardComponent implements OnInit {
   densidadNeta=0
   numLotes
   areaLotes
+  composicionFamiliar=4
+  numeroLotesTotales
 
   getInteger(){
     this.densidadNeta = Math.trunc(this.densidadNeta)
@@ -267,15 +269,18 @@ export class DashboardComponent implements OnInit {
 
   calculoDensidad(){
     this.densidadNeta = this.poblacion / this.sueloVivienda
-    this.numLotes = this.poblacion/4
-    this.areaLotes = this.sueloVivienda / this.numLotes
+    this.numLotes = this.densidadNeta/this.composicionFamiliar
+    this.areaLotes = (10000 / this.numLotes)
+    this.numeroLotesTotales = this.numLotes*this.sueloVivienda
     this.getInteger()
   }
 
   calculoPoblacion(){
     this.poblacion = this.densidadNeta * this.sueloVivienda
-    this.numLotes = this.poblacion/4
-    this.areaLotes = this.sueloVivienda / this.numLotes
+    this.numLotes = this.densidadNeta/this.composicionFamiliar
+    this.areaLotes = (10000 / this.numLotes)
+    this.numeroLotesTotales = this.numLotes*this.sueloVivienda
+    this.calculoLotes()
     this.getInteger()
   }
   calculoValores(){
@@ -284,4 +289,14 @@ export class DashboardComponent implements OnInit {
     this.calculoPoblacion()
   }
   
+  /* Calculo de lotes medio-minimo-maximo */
+  loteMedio;
+  loteMinimo;
+  loteMaximo;
+  calculoLotes(){
+    this.loteMedio = this.areaLotes
+    this.loteMinimo = this.loteMedio*0.9
+    this.loteMaximo = this.loteMedio*1.1
+  }
+
 }

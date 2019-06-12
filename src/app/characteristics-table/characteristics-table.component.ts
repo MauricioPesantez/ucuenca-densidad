@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FirestoreService } from 'app/services/firestore/firestore.service';
 
 @Component({
   selector: 'app-characteristics-table',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacteristicsTableComponent implements OnInit {
 
-  constructor() { }
+  @Input() tamLoteDash: number;
+
+  public tamanos=[];
+
+  constructor(private firebaseStore:FirestoreService) { }
 
   ngOnInit() {
+    this.firebaseStore.getAllTamLotes().subscribe(tamanoss=>{
+      console.log("Tamanos", tamanoss)
+      console.log("valor lote", this.tamLoteDash)
+    } )
   }
 
 }

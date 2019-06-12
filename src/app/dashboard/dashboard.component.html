@@ -286,7 +286,9 @@
                                     <input matInput type="text" [(ngModel)]="numLotes" name="numLotes" disabled>
                                 </mat-form-field>
                             </div>
-                            <div class="col-md-1"></div>
+                            <div class="col-md-1">
+                                <h4>{{numeroLotesTotales}}</h4>
+                            </div>
                             <div class="col-md-2">
                                 Área de Lotes :
                             </div>
@@ -328,13 +330,13 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                Lote medio Area:
+                                Lote medio:
                             </div>
                             <mat-form-field class="example-full-width">
-                                <input matInput type="text" [(ngModel)]="sueloVivienda" name="sueloVivienda"
-                                    (change)="calculoValores()">
+                                <input matInput type="text" [(ngModel)]="loteMedio" name="loteMedio" disabled>
 
                                 <!--
+                                    
                                         poner sub fijo a las entradas
 
                                     <mat-hint>Hint</mat-hint>
@@ -344,46 +346,48 @@
                             </mat-form-field>
 
                             <button mat-icon-button>
-                                <i class="material-icons" (click)='onClick()'>add</i>
+                                <i class="material-icons" (click)='onClickCharacteristics()'>add</i>
                             </button>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                Lote mínimo Area:
+                                Lote mínimo:
                             </div>
                             <mat-form-field class="example-full-width">
-                                <input matInput type="text" [(ngModel)]="sueloVivienda" name="sueloVivienda"
-                                    (change)="calculoValores()">
+                                <input matInput type="text" [(ngModel)]="loteMinimo" name="loteMinimo" disabled>
                             </mat-form-field>
                             <button mat-icon-button>
-                                <i class="material-icons">add</i>
+                                <i class="material-icons" (click)='onClickCharacteristics()' >add</i>
                             </button>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                Lote máximo Area:
+                                Lote máximo:
                             </div>
 
                             <mat-form-field class="example-full-width">
-                                <input matInput type="text" [(ngModel)]="sueloVivienda" name="sueloVivienda"
-                                    (change)="calculoValores()">
+                                <input matInput type="text" [(ngModel)]="loteMaximo" name="loteMaximo" disabled>
                             </mat-form-field>
 
 
                             <button mat-icon-button>
-                                <i class="material-icons">add</i>
+                                <i class="material-icons" (click)='onClickCharacteristics()'>add</i>
                             </button>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <app-prueba *ngIf="isShow">
-        </app-prueba>
-        <app-characteristics-table>
-            
-        </app-characteristics-table>
+        <div class="row" *ngIf="isShow">
+            <div class="col-md-12">
+                <app-characteristics-table [tamLoteDash]="loteMedio">
+                </app-characteristics-table>
+            </div>
+
+
+        </div>
+
         <!--
             <div class="col-md-4">
                 <div class="card card-chart">
