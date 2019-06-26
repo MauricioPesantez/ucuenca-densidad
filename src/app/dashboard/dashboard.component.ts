@@ -195,6 +195,15 @@ export class DashboardComponent implements OnInit {
     this.seleccionMedidaNoUrbanizable[6] = this.opcionAgricultura
   }
 
+  cambioMedidasSueloNoUrbanizable(){
+    this.capturarMedidaNoUrbanizable()
+    if(this.constanteSuelo>0){
+      this.calcularSueloUrbanizable(this.constanteSuelo)
+      this.calculoDensidad()
+    }
+    
+  }
+
   onClickCharacteristics(){
     if(this.isShow) this.isShow=false
     else this.isShow=true
