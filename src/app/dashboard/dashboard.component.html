@@ -2,7 +2,7 @@
     <div class="container-fluid">
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12">
                 <div class="card card-chart">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">Superficie a urbanizar.</h4>
@@ -19,14 +19,8 @@
                             (change)="capturarMedida()" (change)="cambioMedidasSueloNoUrbanizable()">
                             <option value="" disabled selected>Seleccione una unidad</option>
                             <option value="0.0001">Metros Cuadrados</option>
-                            <option value="0.01">Decámetros Cuadrados</option>
-                            <option value="1.0">Hectómetros Cuadrados</option>
-                            <option value="0.01">Área</option>
                             <option value="1">Hectárea</option>
-                            <option value="0.000083613">Yardas Cuadradas</option>
-                            <option value="258.999">Millas Cuadradas</option>
-                            <option value="0.00000929">Pies Cuadrados</option>
-                            <option value="0.000000065">Pulgadas Cuadradas</option>
+                            <option value="100">Kilómetros Cuadradas</option>
                         </select>
                         <h4>
                             Superficie inicial: {{getHectareas()}} ha.
@@ -39,7 +33,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+        </div>
+
+        <div class="row">            
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title">Suelo No Urbanizable</h4>
@@ -60,14 +57,8 @@
                                         (change)="capturarMedidaNoUrbanizable()" name=opci1>
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
-                                        <option value="0.01">Decámetros Cuadrados</option>
-                                        <option value="1.0">Hectómetros Cuadrados</option>
-                                        <option value="0.01">Área</option>
                                         <option value="1">Hectárea</option>
-                                        <option value="0.000083613">Yardas Cuadradas</option>
-                                        <option value="258.999">Millas Cuadradas</option>
-                                        <option value="0.00000929">Pies Cuadrados</option>
-                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                        <option value="100">Kilómetros Cuadradas</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
@@ -81,14 +72,8 @@
                                         (change)="capturarMedidaNoUrbanizable()" name="opciAreas">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
-                                        <option value="0.01">Decámetros Cuadrados</option>
-                                        <option value="1.0">Hectómetros Cuadrados</option>
-                                        <option value="0.01">Área</option>
                                         <option value="1">Hectárea</option>
-                                        <option value="0.000083613">Yardas Cuadradas</option>
-                                        <option value="258.999">Millas Cuadradas</option>
-                                        <option value="0.00000929">Pies Cuadrados</option>
-                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                        <option value="100">Kilómetros Cuadradas</option>
                                     </select>
                                 </div>
                             </div>
@@ -104,14 +89,8 @@
                                         (change)="capturarMedidaNoUrbanizable()" name="opcihisto">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
-                                        <option value="0.01">Decámetros Cuadrados</option>
-                                        <option value="1.0">Hectómetros Cuadrados</option>
-                                        <option value="0.01">Área</option>
                                         <option value="1">Hectárea</option>
-                                        <option value="0.000083613">Yardas Cuadradas</option>
-                                        <option value="258.999">Millas Cuadradas</option>
-                                        <option value="0.00000929">Pies Cuadrados</option>
-                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                        <option value="100">Kilómetros Cuadradas</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
@@ -125,14 +104,8 @@
                                         (change)="capturarMedidaNoUrbanizable()" name="opciVias">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
-                                        <option value="0.01">Decámetros Cuadrados</option>
-                                        <option value="1.0">Hectómetros Cuadrados</option>
-                                        <option value="0.01">Área</option>
                                         <option value="1">Hectárea</option>
-                                        <option value="0.000083613">Yardas Cuadradas</option>
-                                        <option value="258.999">Millas Cuadradas</option>
-                                        <option value="0.00000929">Pies Cuadrados</option>
-                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                        <option value="100">Kilómetros Cuadradas</option>
                                     </select>
                                 </div>
                             </div>
@@ -148,14 +121,8 @@
                                         (change)="capturarMedidaNoUrbanizable()" name="opciRios">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
-                                        <option value="0.01">Decámetros Cuadrados</option>
-                                        <option value="1.0">Hectómetros Cuadrados</option>
-                                        <option value="0.01">Área</option>
                                         <option value="1">Hectárea</option>
-                                        <option value="0.000083613">Yardas Cuadradas</option>
-                                        <option value="258.999">Millas Cuadradas</option>
-                                        <option value="0.00000929">Pies Cuadrados</option>
-                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                        <option value="100">Kilómetros Cuadradas</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
@@ -169,14 +136,8 @@
                                         (change)="capturarMedidaNoUrbanizable()" name="opciFallas">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
-                                        <option value="0.01">Decámetros Cuadrados</option>
-                                        <option value="1.0">Hectómetros Cuadrados</option>
-                                        <option value="0.01">Área</option>
                                         <option value="1">Hectárea</option>
-                                        <option value="0.000083613">Yardas Cuadradas</option>
-                                        <option value="258.999">Millas Cuadradas</option>
-                                        <option value="0.00000929">Pies Cuadrados</option>
-                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                        <option value="100">Kilómetros Cuadradas</option>
                                     </select>
                                 </div>
                             </div>
@@ -193,16 +154,13 @@
                                         (change)="capturarMedidaNoUrbanizable()" name="opciAgri">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
-                                        <option value="0.01">Decámetros Cuadrados</option>
-                                        <option value="1.0">Hectómetros Cuadrados</option>
-                                        <option value="0.01">Área</option>
                                         <option value="1">Hectárea</option>
-                                        <option value="0.000083613">Yardas Cuadradas</option>
-                                        <option value="258.999">Millas Cuadradas</option>
-                                        <option value="0.00000929">Pies Cuadrados</option>
-                                        <option value="0.000000065">Pulgadas Cuadradas</option>
+                                        <option value="100">Kilómetros Cuadradas</option>
                                     </select>
-                                </div>
+                                </div>                                
+                            </div>
+                            <hr>
+                            <div class="row">
                                 <div class="col-md-6" *ngIf="!ocultar">
                                     <p>Suelo Útil: {{sueloUtil}} ha</p>
                                 </div>
@@ -288,7 +246,7 @@
                                 </mat-form-field>
                             </div>
                             <div class="col-md-1">
-                                <!--<h4>{{numeroLotesTotales}}</h4>-->
+                                <!--<h4>{{numeroLotesTotales}}</h4>-->  
                             </div>
                             <div class="col-md-2">
                                 Área de Lotes :
@@ -302,7 +260,7 @@
 
                         <div class="row">
                             <div class="col-md-8">
-                                <button mat-raised-button type="submit" class="btn btn-danger"
+                                <button mat-raised-button type="submit" class="aux-tn-danger btn"
                                     (click)="calcularSueloUrbanizable(0.65)">Calcular con 65%
                                 </button>
                                 <button mat-raised-button type="submit" class="btn btn-danger"
@@ -382,8 +340,9 @@
         </div>
         <div class="row" *ngIf="isShow">
             <div class="col-md-12">
-                <app-characteristics-table [tamLoteDash]="loteMedio">
-                </app-characteristics-table>
+                <!--<app-characteristics-table [tamLoteDash]="loteMedio">-->
+                <app-characteristics-table [tamLoteDash]="130">
+                    </app-characteristics-table>
             </div>
 
 

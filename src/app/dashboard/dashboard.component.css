@@ -1,3 +1,6 @@
-/*.nav-tabs{
+.nav-tabs{
     background-color: rgb(52, 74, 238);
-}*/
+}
+.aux-btn-danger{
+    background-color: #74bd2f !important;
+}

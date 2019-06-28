@@ -3,6 +3,7 @@ import * as Chartist from 'chartist';
 import {FormsModule, FormBuilder} from "@angular/forms";
 import { MatSliderModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button'; 
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-dashboard',
