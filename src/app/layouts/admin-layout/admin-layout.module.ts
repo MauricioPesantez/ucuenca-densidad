@@ -19,7 +19,6 @@ import {
   MatTooltipModule,
   MatSelectModule
 } from '@angular/material';
-import { PruebaComponent } from 'app/prueba/prueba.component';
 import{CharacteristicsTableComponent} from 'app/characteristics-table/characteristics-table.component'
 @NgModule({
   imports: [
@@ -41,7 +40,6 @@ import{CharacteristicsTableComponent} from 'app/characteristics-table/characteri
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    PruebaComponent,
     CharacteristicsTableComponent
   ]
 })
