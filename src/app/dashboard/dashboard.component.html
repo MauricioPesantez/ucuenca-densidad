@@ -1,4 +1,4 @@
-<div class="main-content fondo" >
+<div class="main-content fondo">
     <div class="container-fluid">
 
         <div class="row">
@@ -8,23 +8,26 @@
                         <h4 class="card-title letraColor">SUPERFICIE A URBANIZAR</h4>
                     </div>
                     <div class="card-body">
-                        <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Ingrese la superficie" type="text"
-                                [(ngModel)]="hectareasTotales" name="hectareasTotales">
-                        </mat-form-field>
-
-                        Seleccione una unidad
-
-                        <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                            (change)="capturarMedida()" (change)="cambioMedidasSueloNoUrbanizable()">
-                            <option value="" disabled selected>Seleccione una unidad</option>
-                            <option value="0.0001">Metros Cuadrados</option>
-                            <option value="1">Hectárea</option>
-                            <option value="100">Kilómetros Cuadradas</option>
-                        </select>
-                        <h4>
-                            Superficie inicial: {{getHectareas()}} ha.
-                        </h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Ingrese la superficie" type="text"
+                                        [(ngModel)]="hectareasTotales" name="hectareasTotales">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-6">
+                                <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
+                                    (change)="capturarMedida()" (change)="cambioMedidasSueloNoUrbanizable()">
+                                    <option value="" disabled selected>Seleccione una unidad</option>
+                                    <option value="0.0001">Metros Cuadrados</option>
+                                    <option value="1">Hectárea</option>
+                                    <option value="100">Kilómetros Cuadradas</option>
+                                </select>
+                                <h4>
+                                    Superficie inicial: {{getHectareas()}} ha.
+                                </h4>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <div class="stats">
@@ -35,7 +38,7 @@
             </div>
         </div>
 
-        <div class="row">            
+        <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="fondoCard card-header">
@@ -48,7 +51,8 @@
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Limitaciones Topográficas" type="text"
-                                            [(ngModel)]="limitacionesTopograficas" name="limitacionesTopograficas" (change)="cambioMedidasSueloNoUrbanizable()">
+                                            [(ngModel)]="limitacionesTopograficas" name="limitacionesTopograficas"
+                                            (change)="cambioMedidasSueloNoUrbanizable()">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
@@ -64,7 +68,8 @@
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Áreas de Valor Paisajístico" type="text"
-                                            [(ngModel)]="areasPaisaje" name="areasPaisaje" (change)="cambioMedidasSueloNoUrbanizable()">
+                                            [(ngModel)]="areasPaisaje" name="areasPaisaje"
+                                            (change)="cambioMedidasSueloNoUrbanizable()">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
@@ -81,7 +86,8 @@
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Áreas de Valor Histórico" type="text"
-                                            [(ngModel)]="areasHistorico" name="areasHistorico" (change)="cambioMedidasSueloNoUrbanizable()">
+                                            [(ngModel)]="areasHistorico" name="areasHistorico"
+                                            (change)="cambioMedidasSueloNoUrbanizable()">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
@@ -128,7 +134,8 @@
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Área de Fallas Geológicas" type="text"
-                                            [(ngModel)]="fallasGeologicas" name="fallasGeologicas" (change)="cambioMedidasSueloNoUrbanizable()">
+                                            [(ngModel)]="fallasGeologicas" name="fallasGeologicas"
+                                            (change)="cambioMedidasSueloNoUrbanizable()">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
@@ -146,7 +153,8 @@
                                 <div class="col-md-4">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Área de Agricultura" type="text"
-                                            [(ngModel)]="agricultura" name="agricultura" (change)="cambioMedidasSueloNoUrbanizable()">
+                                            [(ngModel)]="agricultura" name="agricultura"
+                                            (change)="cambioMedidasSueloNoUrbanizable()">
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
@@ -157,7 +165,7 @@
                                         <option value="1">Hectárea</option>
                                         <option value="100">Kilómetros Cuadradas</option>
                                     </select>
-                                </div>                                
+                                </div>
                             </div>
                             <hr>
                             <div class="row">
@@ -213,7 +221,8 @@
             <div class="col-md-12">
                 <div class="card pmd-card">
                     <div class="fondoCard card-header">
-                        <h4 class="card-title letraColor">Resultados Suelos de Vivienda con:<b> {{constanteSuelo*100}}% </b></h4>
+                        <h4 class="card-title letraColor">Resultados Suelos de Vivienda con:<b> {{constanteSuelo*100}}%
+                            </b></h4>
                         <!--Con el "id" se calcula lo de la funcion-->
                     </div>
                     <div class="card-footer">
@@ -246,7 +255,7 @@
                                 </mat-form-field>
                             </div>
                             <div class="col-md-1">
-                                <!--<h4>{{numeroLotesTotales}}</h4>-->  
+                                <!--<h4>{{numeroLotesTotales}}</h4>-->
                             </div>
                             <div class="col-md-2">
                                 Área de Lotes :
@@ -261,7 +270,7 @@
                             <div class="d-flex justify-content-center my-4">
                                 <span class="font-weight-bold blue-text mr-2 mt-1">65%</span>
                                 <form class="range-field w-70">
-                                  <input class="border-0" type="range" min="65" max="70" />
+                                    <input class="border-0" type="range" min="65" max="70" />
                                 </form>
                                 <span class="font-weight-bold blue-text ml-2 mt-1">70%</span>
                             </div>
@@ -325,7 +334,7 @@
                                 <input matInput type="text" [(ngModel)]="loteMinimo" name="loteMinimo" disabled>
                             </mat-form-field>
                             <button mat-icon-button>
-                                <i class="material-icons" (click)='onClickCharacteristics()' >add</i>
+                                <i class="material-icons" (click)='onClickCharacteristics()'>add</i>
                             </button>
                         </div>
                         <div class="row">
@@ -351,7 +360,7 @@
             <div class="col-md-12">
                 <!--<app-characteristics-table [tamLoteDash]="loteMedio">-->
                 <app-characteristics-table [tamLoteDash]="130">
-                    </app-characteristics-table>
+                </app-characteristics-table>
             </div>
 
 
