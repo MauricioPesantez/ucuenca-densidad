@@ -210,7 +210,11 @@ export class DashboardComponent implements OnInit {
   }
 
 
-
+  porcentajeSuelo
+  opcionPorcentaje=65
+  capturarValorSueloVivienda(){
+    this.porcentajeSuelo = this.opcionPorcentaje
+  }
 
 
   // llenada de superfices no utilizables

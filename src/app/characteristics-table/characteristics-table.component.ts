@@ -4,7 +4,7 @@ import { FirestoreService } from 'app/services/firestore/firestore.service';
 @Component({
   selector: 'app-characteristics-table',
   templateUrl: './characteristics-table.component.html',
-  styleUrls: ['./characteristics-table.component.scss']
+  styleUrls: ['./characteristics-table.component.css']
 })
 export class CharacteristicsTableComponent implements OnInit {
 
@@ -59,5 +59,6 @@ export class CharacteristicsTableComponent implements OnInit {
 
     console.log(this.tamMostrar)
   }
+  
 
 }

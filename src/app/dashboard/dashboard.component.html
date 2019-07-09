@@ -221,7 +221,7 @@
             <div class="col-md-12">
                 <div class="card pmd-card">
                     <div class="fondoCard card-header">
-                        <h4 class="card-title letraColor">Resultados Suelos de Vivienda con:<b> {{constanteSuelo*100}}%
+                        <h4 class="card-title letraColor">Resultados Suelos de Vivienda con:<b> {{opcionPorcentaje}}%
                             </b></h4>
                         <!--Con el "id" se calcula lo de la funcion-->
                     </div>
@@ -266,11 +266,27 @@
                                 </mat-form-field>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <select class="browser-default custom-select" [(ngModel)]="opcionPorcentaje"
+                                    (change)="capturarValorSueloVivienda()">
+                                    <option value="" disabled selected>Seleccione un porcentaje</option>
+                                    <option value="65">65%</option>
+                                    <option value="66">66%</option>
+                                    <option value="67">67%</option>
+                                    <option value="68">68%</option>
+                                    <option value="69">69%</option>
+                                    <option value="70">70%</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!--
                         <div class="row">
                             <div class="d-flex justify-content-center my-4">
                                 <span class="font-weight-bold blue-text mr-2 mt-1">65%</span>
                                 <form class="range-field w-70">
-                                    <input class="border-0" type="range" min="65" max="70" />
+                                    <input class="border-0" type="range" value=65 min="65" max="70" />
                                 </form>
                                 <span class="font-weight-bold blue-text ml-2 mt-1">70%</span>
                             </div>
@@ -286,6 +302,7 @@
 
                             </div>
                         </div>
+                        -->
 
                     </div>
                     <div class="card-footer">
@@ -309,6 +326,7 @@
                             <div class="col-md-4">
                                 Lote medio:
                             </div>
+                            
                             <mat-form-field class="example-full-width">
                                 <input matInput type="text" [(ngModel)]="loteMedio" name="loteMedio" disabled>
 
