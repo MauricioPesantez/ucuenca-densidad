@@ -172,7 +172,7 @@ export class DashboardComponent implements OnInit {
     else return (this.hectareasTotales*this.opcionMedida)
   }
 
-  seleccionMedidaNoUrbanizable = [1,1,1,1,1,1,1]
+  seleccionMedidaNoUrbanizable = [1,1,1,1,1,1,1,1]
   /*opciones de suelu no urbanizable*/
   opcionLimitacionesTopograficas=0.0001
   opcionAreasPaisaje=0.0001
@@ -181,6 +181,7 @@ export class DashboardComponent implements OnInit {
   opcionRios=0.0001
   opcionFallasGeologicas=0.0001
   opcionAgricultura=0.0001
+  opcionLimitacionesTecnicas=0.0001
 
 
   
@@ -193,6 +194,7 @@ export class DashboardComponent implements OnInit {
     this.seleccionMedidaNoUrbanizable[4] = this.opcionRios
     this.seleccionMedidaNoUrbanizable[5] = this.opcionFallasGeologicas
     this.seleccionMedidaNoUrbanizable[6] = this.opcionAgricultura
+    this.seleccionMedidaNoUrbanizable[7] = this.opcionLimitacionesTecnicas
   }
 
   cambioMedidasSueloNoUrbanizable(){
@@ -214,6 +216,7 @@ export class DashboardComponent implements OnInit {
   opcionPorcentaje=65
   capturarValorSueloVivienda(){
     this.porcentajeSuelo = this.opcionPorcentaje
+    this.calcularSueloUrbanizable(this.porcentajeSuelo)
   }
 
 
@@ -225,6 +228,7 @@ export class DashboardComponent implements OnInit {
   rios=0
   fallasGeologicas=0
   agricultura=0
+  limitacionesTecnicas=0
   constanteSuelo:number = 0
 
   calcularSueloUrbanizable(valor){

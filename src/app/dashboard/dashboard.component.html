@@ -166,6 +166,22 @@
                                         <option value="100">Kilómetros Cuadradas</option>
                                     </select>
                                 </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Limitaciones técnicas" type="text"
+                                            [(ngModel)]="limitacionesTecnicas" name="limitacionesTecnicas"
+                                            (change)="cambioMedidasSueloNoUrbanizable()">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="browser-default custom-select" [(ngModel)]="opcionLimitacionesTecnicas"
+                                        (change)="capturarMedidaNoUrbanizable()" name="opciLimitaciones">
+                                        <option value="" disabled selected>Seleccione una unidad</option>
+                                        <option value="0.0001">Metros Cuadrados</option>
+                                        <option value="1">Hectárea</option>
+                                        <option value="100">Kilómetros Cuadradas</option>
+                                    </select>
+                                </div>
                             </div>
                             <hr>
                             <div class="row">
@@ -254,15 +270,23 @@
                                     <input matInput type="text" [(ngModel)]="numLotes" name="numLotes" disabled>
                                 </mat-form-field>
                             </div>
-                            <div class="col-md-1">
-                                <!--<h4>{{numeroLotesTotales}}</h4>-->
-                            </div>
                             <div class="col-md-2">
-                                Área de Lotes :
+                                Área de Lotes (m<sup>2</sup>) :
                             </div>
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <input matInput type="text" [(ngModel)]="areaLotes" name="areaLotes" disabled>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-3">
+                                Número de Lotes Totales:                                
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text" [(ngModel)]="numeroLotesTotales" name="numLotesTotales" disabled>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -326,7 +350,7 @@
                             <div class="col-md-4">
                                 Lote medio:
                             </div>
-                            
+
                             <mat-form-field class="example-full-width">
                                 <input matInput type="text" [(ngModel)]="loteMedio" name="loteMedio" disabled>
 
