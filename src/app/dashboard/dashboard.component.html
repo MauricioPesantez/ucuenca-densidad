@@ -12,12 +12,12 @@
                             <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Ingrese la superficie" type="text"
-                                        [(ngModel)]="hectareasTotales" name="hectareasTotales">
+                                        [(ngModel)]="hectareasTotales" name="hectareasTotales" (change)="capturarValorSueloVivienda()">
                                 </mat-form-field>
                             </div>
                             <div class="col-md-6">
                                 <select class="browser-default custom-select" [(ngModel)]="opcionMedida"
-                                    (change)="capturarMedida()" (change)="cambioMedidasSueloNoUrbanizable()">
+                                    (change)="capturarMedida()">
                                     <option value="" disabled selected>Seleccione una unidad</option>
                                     <option value="0.0001">Metros Cuadrados</option>
                                     <option value="1">Hectárea</option>
@@ -295,7 +295,7 @@
                             <div class="col-md-6">
                                 <select class="browser-default custom-select" [(ngModel)]="opcionPorcentaje"
                                     (change)="capturarValorSueloVivienda()">
-                                    <option value="" disabled selected>Seleccione un porcentaje</option>
+                                    <option value="0" disabled selected>Porcentaje Suelo de Vivienda</option>
                                     <option value="65">65%</option>
                                     <option value="66">66%</option>
                                     <option value="67">67%</option>

@@ -199,9 +199,8 @@ export class DashboardComponent implements OnInit {
 
   cambioMedidasSueloNoUrbanizable(){
     this.capturarMedidaNoUrbanizable()
-    if(this.constanteSuelo>0){
-      this.calcularSueloUrbanizable(this.constanteSuelo)
-      this.calculoDensidad()
+    if(this.porcentajeSuelo>0){
+      this.capturarValorSueloVivienda()
     }
     
   }
@@ -213,9 +212,9 @@ export class DashboardComponent implements OnInit {
 
 
   porcentajeSuelo
-  opcionPorcentaje=65
+  opcionPorcentaje=0
   capturarValorSueloVivienda(){
-    this.porcentajeSuelo = this.opcionPorcentaje
+    this.porcentajeSuelo = (this.opcionPorcentaje)/100
     this.calcularSueloUrbanizable(this.porcentajeSuelo)
   }
 
@@ -242,10 +241,11 @@ export class DashboardComponent implements OnInit {
     typeof this.limitacionesTopograficas == 'undefined') alert("Debe completar todos los campos")
     else{
       
-      this.sueloUtil =  (this.hectareasTotales - ((this.limitacionesTopograficas*this.seleccionMedidaNoUrbanizable[0]) + 
-                                            (this.areasPaisaje*this.seleccionMedidaNoUrbanizable[1]) + (this.areasHistorico*this.seleccionMedidaNoUrbanizable[2]) 
-                                            + (this.vias*this.seleccionMedidaNoUrbanizable[3]) + (this.rios*this.seleccionMedidaNoUrbanizable[4]) + 
-                                            (this.fallasGeologicas*this.seleccionMedidaNoUrbanizable[5]) + (this.agricultura*this.seleccionMedidaNoUrbanizable[6]))) * this.opcionMedida
+      this.sueloUtil =  (this.hectareasTotales - 
+        ((this.limitacionesTopograficas*this.seleccionMedidaNoUrbanizable[0]) + 
+        (this.areasPaisaje*this.seleccionMedidaNoUrbanizable[1]) + (this.areasHistorico*this.seleccionMedidaNoUrbanizable[2]) 
+        + (this.vias*this.seleccionMedidaNoUrbanizable[3]) + (this.rios*this.seleccionMedidaNoUrbanizable[4]) + 
+        (this.fallasGeologicas*this.seleccionMedidaNoUrbanizable[5]) + (this.agricultura*this.seleccionMedidaNoUrbanizable[6])+(this.agricultura*this.seleccionMedidaNoUrbanizable[7]))) * this.opcionMedida
 
       /* SI EL SUELO CALCULADO ES NEGATIVO, O SE ENCUENTRA BAJO METRICAS DE MEDIDAS, ENTONCES NO SERÁ POSIBLE
       EL CALCULO */
@@ -260,10 +260,11 @@ export class DashboardComponent implements OnInit {
       else{
         this.ocultar=false
         /**Calculo de los datos  */
-        this.sueloVivienda = this.sueloUtil*this.constanteSuelo        
+        this.sueloVivienda = this.sueloUtil*this.constanteSuelo
+        this.sueloVivienda = this.sueloVivienda.toFixed(2)        
         this.densidadNeta = this.poblacion / this.sueloVivienda
         this.numLotes = this.densidadNeta/4
-        this.areaLotes = this.sueloVivienda / this.numLotes
+        this.areaLotes = (this.sueloVivienda / this.numLotes)
       }
 
     }
@@ -311,7 +312,7 @@ export class DashboardComponent implements OnInit {
   loteMinimo;
   loteMaximo;
   calculoLotes(){
-    this.loteMedio = this.areaLotes
+    this.loteMedio = (this.areaLotes).toFixed(2)
     this.loteMinimo = this.loteMedio*0.9
     this.loteMaximo = this.loteMedio*1.1
   }
