@@ -22,7 +22,7 @@ export class CharacteristicsTableComponent implements OnInit {
   ngOnInit() {
     this.firebaseStore.getAllTamLotes().subscribe(tamanoss=>{
       //console.log("Tamanos", tamanoss);         //eso solo muestra un objeto de tipo tamanoInterface
-      console.log("valor lote", this.tamLoteDash) //muestra el numero que recive para buscar en el array de tamanos
+      //alert("valor lote" + this.tamLoteDash) //muestra el numero que recive para buscar en el array de tamanos
       this.tamanos.push(tamanoss[0]);
       this.tamanos.push(tamanoss[1]);
       this.tamanos.push(tamanoss[2]);
@@ -33,10 +33,11 @@ export class CharacteristicsTableComponent implements OnInit {
       this.tamanos.push(tamanoss[7]);
       this.tamanos.push(tamanoss[8]);
       this.tamanos.push(tamanoss[9]);
-      alert(this.tamanos.length)
+      this.obtenerRango()
+      //alert(this.tamanos.length)
     } )
     //console.log("Array a usar: ",this.tamanos)
-    this.obtenerRango()
+    //this.obtenerRango()
     //console.log("Nuevos",this.tamanos)
 
   }//init
@@ -45,7 +46,7 @@ export class CharacteristicsTableComponent implements OnInit {
     console.log("en for", this.tamanos.length)
     for(let i=0;i<(this.tamanos.length-1);i++){
       console.log(this.tamanos[i].tamanoMinimo)
-      if(this.tamLoteDash>=(this.tamanos[i].tamanoMinimo) && this.tamLoteDash<this.tamanos[i+1]){
+      if((this.tamLoteDash>=(this.tamanos[i].tamanoMinimo)) && (this.tamLoteDash<this.tamanos[i+1].tamanoMinimo)){
         this.aux=i;
         this.tamMostrar=this.tamanos[i]
         i=this.tamanos.length-1;
@@ -57,7 +58,7 @@ export class CharacteristicsTableComponent implements OnInit {
       this.tamMostrar=this.tamanos[this.tamanos.length]
     }
 
-    console.log(this.tamMostrar)
+    console.log("Se emuestra: "+this.tamMostrar.id)
   }
   
 
