@@ -1,13 +1,13 @@
 export interface TamanoLoteInterface{
     id?:string;    
     cosMaximo?: number;
-    densidadNetavivienda?: string;
-    frenteMinimo?: number;
-    loteMinimo?: number;
+    densidadNetaVivienda?: string;
+    frenteMinino?: number;
+    numeroPisos?: number;
     retiroLateral?: number;
     retiroLateral3Piso?: number;
     retirosFrontales?: number;
-    retirosPonsteriores?: number;
+    retirosPosteriores?: number;
     tamanoMinimo?: number;
     tipoImplantacion?: string;
 }

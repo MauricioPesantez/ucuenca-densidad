@@ -212,7 +212,7 @@ export class DashboardComponent implements OnInit {
 
 
   porcentajeSuelo
-  opcionPorcentaje=0
+  opcionPorcentaje=65
   capturarValorSueloVivienda(){
     this.porcentajeSuelo = (this.opcionPorcentaje)/100
     this.calcularSueloUrbanizable(this.porcentajeSuelo)

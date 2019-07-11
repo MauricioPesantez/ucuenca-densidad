@@ -12,7 +12,8 @@
                             <div class="col-md-6">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Ingrese la superficie" type="text"
-                                        [(ngModel)]="hectareasTotales" name="hectareasTotales" (change)="capturarValorSueloVivienda()">
+                                        [(ngModel)]="hectareasTotales" name="hectareasTotales"
+                                        (change)="capturarValorSueloVivienda()">
                                 </mat-form-field>
                             </div>
                             <div class="col-md-6">
@@ -174,7 +175,8 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-2">
-                                    <select class="browser-default custom-select" [(ngModel)]="opcionLimitacionesTecnicas"
+                                    <select class="browser-default custom-select"
+                                        [(ngModel)]="opcionLimitacionesTecnicas"
                                         (change)="capturarMedidaNoUrbanizable()" name="opciLimitaciones">
                                         <option value="" disabled selected>Seleccione una unidad</option>
                                         <option value="0.0001">Metros Cuadrados</option>
@@ -259,51 +261,18 @@
                                         (change)="calculoValores()">
                                 </mat-form-field>
                             </div>
-                        </div>
-                        <div class="row">
-
-                            <div class="col-md-3">
-                                Número de Lotes:
-                            </div>
-                            <div class="col-md-3">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput type="text" [(ngModel)]="numLotes" name="numLotes" disabled>
-                                </mat-form-field>
-                            </div>
-                            <div class="col-md-2">
-                                Área de Lotes (m<sup>2</sup>) :
-                            </div>
-                            <div class="col-md-3">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput type="text" [(ngModel)]="areaLotes" name="areaLotes" disabled>
-                                </mat-form-field>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                Número de Lotes Totales:                                
-                            </div>
-                            <div class="col-md-3">
-                                <mat-form-field class="example-full-width">
-                                    <input matInput type="text" [(ngModel)]="numeroLotesTotales" name="numLotesTotales" disabled>
-                                </mat-form-field>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <select class="browser-default custom-select" [(ngModel)]="opcionPorcentaje"
-                                    (change)="capturarValorSueloVivienda()">
-                                    <option value="0" disabled selected>Porcentaje Suelo de Vivienda</option>
-                                    <option value="65">65%</option>
-                                    <option value="66">66%</option>
-                                    <option value="67">67%</option>
-                                    <option value="68">68%</option>
-                                    <option value="69">69%</option>
-                                    <option value="70">70%</option>
-                                </select>
-                            </div>
+                            <div class="col-md-4">
+                                    <select class="browser-default custom-select izqNuevo" [(ngModel)]="opcionPorcentaje"
+                                        (change)="capturarValorSueloVivienda()">
+                                        <option value="0" disabled selected>Porcentaje Suelo de Vivienda</option>
+                                        <option value="65">65%</option>
+                                        <option value="66">66%</option>
+                                        <option value="67">67%</option>
+                                        <option value="68">68%</option>
+                                        <option value="69">69%</option>
+                                        <option value="70">70%</option>
+                                    </select>
+                                </div>
                         </div>
                         <!--
                         <div class="row">
@@ -346,9 +315,31 @@
                         <!--Con el "id" se calcula lo de la funcion-->
                     </div>
                     <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-3">
+                                Número de Lotes por hectárea:
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text" [(ngModel)]="numLotes" name="numLotes" disabled>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                Número de Lotes Totales:
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput type="text" [(ngModel)]="numeroLotesTotales" name="numLotesTotales"
+                                        disabled>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-4">
-                                Lote medio:
+                                Lote medio (m<sup>2</sup>):
                             </div>
 
                             <mat-form-field class="example-full-width">
@@ -370,7 +361,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                Lote mínimo:
+                                Lote mínimo (m<sup>2</sup>):
                             </div>
                             <mat-form-field class="example-full-width">
                                 <input matInput type="text" [(ngModel)]="loteMinimo" name="loteMinimo" disabled>
@@ -381,7 +372,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                Lote máximo:
+                                Lote máximo (m<sup>2</sup>):
                             </div>
 
                             <mat-form-field class="example-full-width">
@@ -401,7 +392,7 @@
         <div class="row" *ngIf="isShow">
             <div class="col-md-12">
                 <!--<app-characteristics-table [tamLoteDash]="loteMedio">-->
-                <app-characteristics-table [tamLoteDash]="130">
+                <app-characteristics-table [tamLoteDash]="loteMedio">
                 </app-characteristics-table>
             </div>
 

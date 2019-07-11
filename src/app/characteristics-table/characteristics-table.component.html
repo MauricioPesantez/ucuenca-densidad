@@ -1,45 +1,35 @@
-<div class="card pmd-card " >
+<div class="card pmd-card ">
   <div class="card-header fondoCard">
     <h4 class="card-title letraColor">Características del Lote</h4>
     <!--Con el "id" se calcula lo de la funcion-->
   </div>
   <div class="card-body">
-    <div class="row">
-      <div class="row">
-        <div class="col-md-8">
-            <button mat-raised-button type="submit" class="fondoCard btn"
-                (click)="obtenerRango()">Calcular con 65%
-            </button>
 
-        </div>
-    </div>
-    </div>
-    
     <div class="row">
-      <div class="col-md-1">
+      <div class="col-md-2">
         Lote medio:
       </div>
       <div class="col-md-2">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" disabled>
+          <input matInput type="text" [(ngModel)]="tamLoteDash" name="var1" disabled>
         </mat-form-field>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-1">
+      
+      <div class="col-md-2">
         Área de lote:
       </div>
       <div class="col-md-2">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" disabled >
+          <input matInput type="text" [(ngModel)]="tamMostrar.tamanoMinimo" name="var2" disabled>
         </mat-form-field>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-1">
+      
+      <div class="col-md-2">
         Frente Mínimo:
       </div>
       <div class="col-md-2">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" disabled>
+          <input matInput type="text" [(ngModel)]="tamMostrar.frenteMinimo" name="var3" disabled>
         </mat-form-field>
       </div>
     </div>
@@ -76,30 +66,28 @@
     </div>
 
     <div class="row">
-      <div class="col-md-1">
+      <div class="col-md-2">
         COS máximo:
       </div>
       <div class="col-md-2">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" disabled>
+          <input matInput type="text" [(ngModel)]="tamMostrar.cosMaximo" name="var9" disabled>
         </mat-form-field>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-1">
+      <div class="col-md-2">
         Altura máxima:
       </div>
       <div class="col-md-2">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" disabled>
+          <input matInput type="text" [(ngModel)]="tamMostrar.numeroPisos" name="var8" disabled>
         </mat-form-field>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-1">
+      <div class="col-md-2">
         Tipo de implantación:
       </div>
       <div class="col-md-2">
         <mat-form-field class="example-full-width">
-          <input matInput type="text" disabled>
+          <input matInput type="text" [(ngModel)]="tamMostrar.tipoImplantacion" name="var28" disabled>
         </mat-form-field>
       </div>
     </div>
@@ -111,26 +99,26 @@
       <div class="col-md-4">
         <div class="table-responsive">
           <table class="table table-hover">
-              <thead class=" text-primary">
-                  <th></th>
-                  <th></th>
-                </thead>
+            <thead class=" text-primary">
+              <th></th>
+              <th></th>
+            </thead>
             <tbody>
               <tr>
                 <td>Frontal: </td>
-                <td>m</td>
+                <td><input matInput type="text" [(ngModel)]="tamMostrar.retirosFrontales" name="var18" disabled>m</td>
               </tr>
               <tr>
                 <td>Posterior: </td>
-                <td>m</td>
+                <td><input matInput type="text" [(ngModel)]="tamMostrar.retirosPosteriores" name="var19" disabled>m</td>
               </tr>
               <tr>
                 <td>Lateral: </td>
-                <td>m</td>
+                <td><input matInput type="text" [(ngModel)]="tamMostrar.retiroLateral" name="var29" disabled>m</td>
               </tr>
               <tr>
                 <td>Lateral (+3 pisos): </td>
-                <td>m</td>
+                <td><input matInput type="text" [(ngModel)]="tamMostrar.retiroLateral3Piso" name="var39" disabled>m</td>
               </tr>
             </tbody>
           </table>
@@ -138,7 +126,7 @@
         </div>
       </div>
     </div>
-    
+
 
   </div>
 

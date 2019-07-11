@@ -20,6 +20,7 @@ export class CharacteristicsTableComponent implements OnInit {
    }
 
   ngOnInit() {
+    //alert(this.tamLoteDash)
     this.firebaseStore.getAllTamLotes().subscribe(tamanoss=>{
       //console.log("Tamanos", tamanoss);         //eso solo muestra un objeto de tipo tamanoInterface
       //alert("valor lote" + this.tamLoteDash) //muestra el numero que recive para buscar en el array de tamanos
@@ -58,7 +59,7 @@ export class CharacteristicsTableComponent implements OnInit {
       this.tamMostrar=this.tamanos[this.tamanos.length]
     }
 
-    console.log("Se emuestra: "+this.tamMostrar.id)
+    console.log("Se emuestra: "+this.tamMostrar.tamanoMinimo)
   }
   
 
