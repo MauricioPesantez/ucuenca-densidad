@@ -187,7 +187,7 @@ export class DashboardComponent implements OnInit {
   
   capturarMedidaNoUrbanizable(){
 
-    this.seleccionMedidaNoUrbanizable[0] = this.opcionLimitacionesTopograficas    
+    this.seleccionMedidaNoUrbanizable[0] = this.opcionLimitacionesTopograficas  
     this.seleccionMedidaNoUrbanizable[1] = this.opcionAreasPaisaje
     this.seleccionMedidaNoUrbanizable[2] = this.opcionAreasHistorico
     this.seleccionMedidaNoUrbanizable[3] = this.opcionVias
@@ -245,7 +245,7 @@ export class DashboardComponent implements OnInit {
         ((this.limitacionesTopograficas*this.seleccionMedidaNoUrbanizable[0]) + 
         (this.areasPaisaje*this.seleccionMedidaNoUrbanizable[1]) + (this.areasHistorico*this.seleccionMedidaNoUrbanizable[2]) 
         + (this.vias*this.seleccionMedidaNoUrbanizable[3]) + (this.rios*this.seleccionMedidaNoUrbanizable[4]) + 
-        (this.fallasGeologicas*this.seleccionMedidaNoUrbanizable[5]) + (this.agricultura*this.seleccionMedidaNoUrbanizable[6])+(this.agricultura*this.seleccionMedidaNoUrbanizable[7]))) * this.opcionMedida
+        (this.fallasGeologicas*this.seleccionMedidaNoUrbanizable[5]) + (this.agricultura*this.seleccionMedidaNoUrbanizable[6])+(this.limitacionesTecnicas*this.seleccionMedidaNoUrbanizable[7]))) * this.opcionMedida
 
       /* SI EL SUELO CALCULADO ES NEGATIVO, O SE ENCUENTRA BAJO METRICAS DE MEDIDAS, ENTONCES NO SERÁ POSIBLE
       EL CALCULO */
@@ -265,6 +265,7 @@ export class DashboardComponent implements OnInit {
         this.densidadNeta = this.poblacion / this.sueloVivienda
         this.numLotes = this.densidadNeta/4
         this.areaLotes = (this.sueloVivienda / this.numLotes)
+        this.getInteger()
       }
 
     }
@@ -304,7 +305,7 @@ export class DashboardComponent implements OnInit {
   calculoValores(){
     this.calcularSueloUrbanizable(this.constanteSuelo)
     this.calculoDensidad()
-    this.calculoPoblacion()
+    //this.calculoPoblacion()
   }
   
   /* Calculo de lotes medio-minimo-maximo */
@@ -314,7 +315,7 @@ export class DashboardComponent implements OnInit {
   calculoLotes(){
     this.loteMedio = (this.areaLotes).toFixed(2)
     this.loteMinimo = this.loteMedio*0.9
-    this.loteMaximo = this.loteMedio*1.1
+    this.loteMaximo = (this.loteMedio*1.1).toFixed(2)
   }
 
 }
