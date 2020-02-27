@@ -4,6 +4,8 @@ import {FormsModule, FormBuilder} from "@angular/forms";
 import { MatSliderModule } from '@angular/material';
 import {MatButtonModule} from '@angular/material/button'; 
 
+import {ToastrService} from 'ngx-toastr';
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,7 +14,7 @@ import {MatButtonModule} from '@angular/material/button';
 export class DashboardComponent implements OnInit {
 
   isShow=false
-  constructor() { }
+  constructor(private toastr: ToastrService) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -71,7 +73,7 @@ export class DashboardComponent implements OnInit {
   };
   ngOnInit() {
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
-
+      /*
       const dataDailySalesChart: any = {
           labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
           series: [
@@ -93,7 +95,7 @@ export class DashboardComponent implements OnInit {
       this.startAnimationForLineChart(dailySalesChart);
 
 
-      /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
+      /* ----------==========     Completed Tasks Chart initialization    ==========---------- *
 
       const dataCompletedTasksChart: any = {
           labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
@@ -118,7 +120,7 @@ export class DashboardComponent implements OnInit {
 
 
 
-      /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
+      /* ----------==========     Emails Subscription Chart initialization    ==========---------- *
 
       var datawebsiteViewsChart = {
         labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
@@ -149,8 +151,8 @@ export class DashboardComponent implements OnInit {
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
-      
-  } 
+   */   
+  }
   /* VARIABLES DE CALCULO Y OBTENCION DE DATOS */
   opcionMedida=1
   seleccionMedida=0
@@ -169,7 +171,11 @@ export class DashboardComponent implements OnInit {
   getHectareas(){
 
     if(typeof this.hectareasTotales == 'undefined')return 0
-    else return (this.hectareasTotales*this.opcionMedida)
+    else {
+      /*Cuando existe un valor en el campo de las hectareas ingresadas  */
+      this.capturarValorSueloVivienda();
+      return (this.hectareasTotales*this.opcionMedida)
+    }
   }
 
   seleccionMedidaNoUrbanizable = [1,1,1,1,1,1,1,1]
@@ -206,16 +212,22 @@ export class DashboardComponent implements OnInit {
   }
 
   onClickCharacteristics(){
-    if(this.isShow) this.isShow=false
+    if(this.isShow) {
+      this.isShow=false
+      this.showSuccess();
+    }
     else this.isShow=true
   }
 
 
   porcentajeSuelo
   opcionPorcentaje=65
+
   capturarValorSueloVivienda(){
+    
     this.porcentajeSuelo = (this.opcionPorcentaje)/100
     this.calcularSueloUrbanizable(this.porcentajeSuelo)
+    console.log(this.sueloVivienda)
   }
 
 
@@ -253,12 +265,8 @@ export class DashboardComponent implements OnInit {
         alert("La cantidad de Suelo Útil no alcanza las medidas mínimas reglamentarias")
       }
 
-      else if(this.sueloUtil<=0){
-        alert("Error. Los datos ingresados sobrepasan el valor del suelo inicial!!!")
-      }
-
       else{
-        this.ocultar=false
+        this.ocultar=false        
         /**Calculo de los datos  */
         this.sueloVivienda = this.sueloUtil*this.constanteSuelo
         this.sueloVivienda = this.sueloVivienda.toFixed(2)        
@@ -271,7 +279,9 @@ export class DashboardComponent implements OnInit {
     }
 
   }
- 
+  showSuccess(){
+    this.toastr.info("Hello","Fuuuun!!")
+  }
   poblacion
   densidadNeta=0
   numLotes

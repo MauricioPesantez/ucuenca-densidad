@@ -28,6 +28,8 @@ import {AngularFireDatabaseModule} from '@angular/fire/database'
 import { AngularFireModule } from '@angular/fire';
 import {AngularFirestore} from '@angular/fire/firestore';
 
+import {ToastrModule} from 'ngx-toastr'
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -40,7 +42,8 @@ import {AngularFirestore} from '@angular/fire/firestore';
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ToastrModule.forRoot(), 
   ],
   declarations: [
     AppComponent,
